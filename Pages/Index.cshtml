@@ -1,0 +1,47 @@
+@page
+@model IndexModel
+@using System.Globalization
+@using JobTracker.Web.Components
+@{
+    ViewData["Title"] = "Applications";
+}
+
+<h1>Applications</h1>
+
+<component type="typeof(StatusSummary)" render-mode="ServerPrerendered" />
+
+<h2>All applications</h2>
+<label for="table-filter">Filter by company or job title</label>
+<input id="table-filter" type="search" autocomplete="off" />
+<p id="filter-result" aria-live="polite"></p>
+
+<div class="table-scroll" tabindex="0" role="region" aria-label="Job applications table">
+    <table id="applications-table">
+        <caption class="visually-hidden">Job applications</caption>
+        <thead>
+            <tr>
+                <th scope="col">Company</th>
+                <th scope="col">Job title</th>
+                <th scope="col">Posted pay</th>
+                <th scope="col">Status</th>
+                <th scope="col">Applied on</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var application in Model.Applications)
+            {
+                <tr>
+                    <td>@application.Company</td>
+                    <td>@application.JobTitle</td>
+                    <td>@(application.PostedPay?.ToString("C0", CultureInfo.GetCultureInfo("en-US")) ?? "Not listed")</td>
+                    <td>@application.Status</td>
+                    <td>@(application.AppliedOn?.ToString("MMM d, yyyy") ?? "-")</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
+
+@section Scripts {
+    <script type="module" src="~/js/tableFilter.js" asp-append-version="true"></script>
+}

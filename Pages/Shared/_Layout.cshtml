@@ -1,0 +1,25 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>@ViewData["Title"] - Job Tracker</title>
+    <base href="~/" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+</head>
+<body>
+    <a class="skip-link" href="#main">Skip to main content</a>
+    <header>
+        <a class="brand" href="/">Job Tracker</a>
+        <nav aria-label="Main">
+            <a asp-page="/Index">Applications</a>
+            <a asp-page="/Create">Add application</a>
+        </nav>
+    </header>
+    <main id="main">
+        @RenderBody()
+    </main>
+    <script src="_framework/blazor.server.js"></script>
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>

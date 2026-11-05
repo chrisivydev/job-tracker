@@ -1,0 +1,11 @@
+{
+  "name": "job-tracker",
+  "private": true,
+  "scripts": {
+    "build:ts": "tsc",
+    "watch:ts": "tsc --watch"
+  },
+  "devDependencies": {
+    "typescript": "5.9.3"
+  }
+}

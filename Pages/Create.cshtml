@@ -1,0 +1,43 @@
+@page
+@model CreateModel
+@{
+    ViewData["Title"] = "Add application";
+}
+
+<h1>Add application</h1>
+
+<form method="post">
+    <div asp-validation-summary="ModelOnly" class="error"></div>
+
+    <div class="field">
+        <label asp-for="Application.Company"></label>
+        <input asp-for="Application.Company" />
+        <span asp-validation-for="Application.Company" class="error"></span>
+    </div>
+
+    <div class="field">
+        <label asp-for="Application.JobTitle"></label>
+        <input asp-for="Application.JobTitle" />
+        <span asp-validation-for="Application.JobTitle" class="error"></span>
+    </div>
+
+    <div class="field">
+        <label asp-for="Application.PostedPay"></label>
+        <input asp-for="Application.PostedPay" />
+        <span asp-validation-for="Application.PostedPay" class="error"></span>
+    </div>
+
+    <div class="field">
+        <label asp-for="Application.Status"></label>
+        <select asp-for="Application.Status" asp-items="Html.GetEnumSelectList<ApplicationStatus>()"></select>
+        <span asp-validation-for="Application.Status" class="error"></span>
+    </div>
+
+    <div class="field">
+        <label asp-for="Application.AppliedOn"></label>
+        <input asp-for="Application.AppliedOn" type="date" />
+        <span asp-validation-for="Application.AppliedOn" class="error"></span>
+    </div>
+
+    <button type="submit">Save application</button>
+</form>

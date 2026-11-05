@@ -1,0 +1,45 @@
+@inject IJobApplicationRepository Repository
+
+<section aria-labelledby="summary-heading">
+    <h2 id="summary-heading">Pipeline summary</h2>
+    <div class="status-buttons">
+        @foreach (var status in Enum.GetValues<ApplicationStatus>())
+        {
+            <button type="button"
+                    class="status-button"
+                    aria-pressed="@(selected == status ? "true" : "false")"
+                    @onclick="() => Select(status)">
+                @status (@CountFor(status))
+            </button>
+        }
+    </div>
+    <p aria-live="polite" id="summary-result">
+        @if (selected is null)
+        {
+            <text>Choose a status to see its applications.</text>
+        }
+        else
+        {
+            <text>@selected: @Names()</text>
+        }
+    </p>
+</section>
+
+@code {
+    private ApplicationStatus? selected;
+
+    private void Select(ApplicationStatus status) => selected = status;
+
+    private int CountFor(ApplicationStatus status) =>
+        Repository.GetAll().Count(a => a.Status == status);
+
+    private string Names()
+    {
+        var names = Repository.GetAll()
+            .Where(a => a.Status == selected)
+            .Select(a => a.Company)
+            .ToList();
+
+        return names.Count == 0 ? "none yet" : string.Join(", ", names);
+    }
+}
