@@ -4,7 +4,7 @@ A small app for tracking job applications. It uses ASP.NET Core Razor Pages, a B
 
 ## Run it
 
-You need the [.NET 8 SDK](https://dotnet.microsoft.com/download/dotnet/8.0).
+You need the [.NET 10 SDK](https://dotnet.microsoft.com/download/dotnet/10.0).
 
 ```
 dotnet run
