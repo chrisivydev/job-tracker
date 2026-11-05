@@ -34,9 +34,9 @@ The starter keeps data in memory, so it resets when the app restarts.
 
 Build each step yourself so you can explain it in an interview. Commit after each one.
 
-- [ ] **1. Get it running.** Run the app, read every file, and push it to a public GitHub repo.
-- [ ] **2. Upgrade to .NET 10.** Change `TargetFramework` to `net10.0`, run it, and fix anything that breaks. Test the status buttons, since they depend on the Blazor script.
-- [ ] **3. Add NUnit tests.** Create a test project and test the repository and page logic.
+- [X] **1. Get it running.** Run the app, read every file, and push it to a public GitHub repo.
+- [X] **2. Upgrade to .NET 10.** Change `TargetFramework` to `net10.0`, run it, and fix anything that breaks. Test the status buttons, since they depend on the Blazor script.
+- [X] **3. Add NUnit tests.** Create a test project and test the repository and page logic.
 - [ ] **4. Add SQL Server with Entity Framework Core.** Write a new repository, add migrations, and swap it in `Program.cs`.
 - [ ] **5. Finish the Razor Pages.** Add details, edit, and delete pages.
 - [ ] **6. Grow the Blazor piece.** Add a small admin page with sorting, inline status changes, and shared components.

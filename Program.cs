@@ -1,12 +1,15 @@
 using JobTracker.Web.Data;
+using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddRazorPages();
 builder.Services.AddServerSideBlazor();
 
-// Milestone 1: replace this with an Entity Framework Core repository.
-builder.Services.AddSingleton<IJobApplicationRepository, InMemoryJobApplicationRepository>();
+builder.Services.AddDbContext<JobTrackerDbContext>(options =>
+    options.UseSqlServer(builder.Configuration.GetConnectionString("JobTracker")));
+
+builder.Services.AddScoped<IJobApplicationRepository, EfJobApplicationRepository>();
 
 var app = builder.Build();
 
