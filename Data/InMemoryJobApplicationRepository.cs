@@ -10,7 +10,8 @@ public class InMemoryJobApplicationRepository : IJobApplicationRepository
     [
         new() { Id = 1, Company = "Northwind Health", JobTitle = "Software Developer", PostedPay = 125000, Status = ApplicationStatus.Applied, AppliedOn = new DateOnly(2026, 11, 2) },
         new() { Id = 2, Company = "Contoso Federal", JobTitle = ".NET Developer", PostedPay = 120000, Status = ApplicationStatus.Interview, AppliedOn = new DateOnly(2026, 10, 28) },
-        new() { Id = 3, Company = "Fabrikam Software", JobTitle = "Web Developer", Status = ApplicationStatus.Saved }
+        new() { Id = 3, Company = "Fabrikam Software", JobTitle = "Web Developer", Status = ApplicationStatus.Saved },
+        new() {Id = 4, Company = "John Ivy Painting", JobTitle = "Painter", PostedPay = 112233, Status = ApplicationStatus.Applied, AppliedOn = new DateOnly(2026, 11, 2)}
     ];
 
     public IReadOnlyList<JobApplication> GetAll()
